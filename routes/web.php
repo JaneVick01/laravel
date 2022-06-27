@@ -34,10 +34,7 @@ Route::resources([
 
 Route::get('/blog', [BlogController::class, 'index']);
 
-Route::get('/welcome', function () {
-    return view( 'welcome');
-});
+Route::get('/', [WelcomeController::class, 'show']);
 
-Route::get('/{page}', [WelcomeController::class, 'show']);
 
 
