@@ -19,7 +19,7 @@
                     <p class="subtitle"></p>
                     <p></p>
                     <ul>
-                        <p class="subtitle">What I have learned so far: devops 4</p>
+                        <p class="subtitle">What I have learned so far:fvrgbntnb</p>
                         <li>HTML</li>
                         <li>CSS</li>
                         <li><a target="_blank" href="https://github.com/">Git</a></li>
