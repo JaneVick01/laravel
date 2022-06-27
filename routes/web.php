@@ -32,12 +32,13 @@ Route::resources([
 //Route::get('/faq/{id}', [FaqController::class, 'update']);
 //Route::get('/faq/{id}', [FaqController::class, 'destroy']);
 
-Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog', [BlogController::class, 'index'])->middleware(['auth']);
 
-Route::get('/', function () {
-    return redirect( '/welcome');
-});
+Route::get('/welcome', function () {
+    return view( 'welcome');
+})->middleware(['auth'])->name('login');
 
+Route::get('/login', );
 Route::get('/{page}', [WelcomeController::class, 'show']);
 
 
