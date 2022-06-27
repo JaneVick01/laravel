@@ -5,7 +5,7 @@ use App\Models\Article;
 
 class WelcomeController
 {
-    public function show($page) {
-        return view( "$page");
+    public function show() {
+        return view( "welcome");
     }
 }
