@@ -55,7 +55,7 @@ class BarController extends Controller
 
         $bar->save();
 
-        return redirect('/bar');
+        return redirect('/bars');
     }
     /**
      * Display the specified resource.
@@ -103,7 +103,7 @@ class BarController extends Controller
 
         $bar->save();
 
-        return redirect('/bar/'.$bar->id);
+        return redirect('/bars/'.$bar->id);
     }
 
     /**
@@ -117,7 +117,7 @@ class BarController extends Controller
     {
         $bar = Bar::find($id);
         $bar->delete();
-        return redirect('/bar');
+        return redirect('/bars');
 
     }
 }

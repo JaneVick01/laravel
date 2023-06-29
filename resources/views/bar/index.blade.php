@@ -1,50 +1,41 @@
-@extends('common.master')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../css/app.css">
+</head>
 
-@section('content')
-    <section class="hero  is-medium  is-bold is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <p class="title is-2">News</p>
-                <p class="subtitle is-3">The latest news on the HZ</p>
+<section class="hero is-medium bg-primary">
+    <div class="hero-body">
+        <div class="container bg-stone-600">
+            <p class="text-2xl font-bold">News</p>
+            <p class="text-xl">The latest news on the HZ</p>
+        </div>
+    </div>
+</section>
 
+<section class="section bg-gray-200">
+    <div class="container">
+        <div class="flex justify-end">
+            <a href="/bars/create" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Add a new article...</a>
+        </div>
+
+        <div class="mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach($bars as $bar)
+                    <div class="bg-white rounded-lg p-4 {{ $bar->grault < 3.14 ? 'bg-info-dark' : '' }}">
+                        <a href="{{ route('bars.show', $bar) }}" class="block">
+                            <div class="flex items-start">
+                                <div class="ml-2">
+                                    <p class="font-bold">{{ $bar->name }}</p>
+                                    <p class="text-sm">{{ $bar->id }}</p>
+                                    <p class="text-sm">{{ $bar->waldo }}</p>
+                                    <p class="text-sm">{{ $bar->grault }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-full">
-                    <div class="content">
-
-                        <div class="has-text-right">
-                            <a href="/bars/create" class="button is-primary">Add a new article...</a>
-                        </div>
-
-                        <div class="column is-12">
-                            @foreach($bars as $bar)
-                                <div class="panel {{ $bar->grault<3.14 ? 'has-background-info-dark' : '' }}">
-                                    <a class="panel-block" href="{{ route('bars.show', $bar) }}">
-                                        <article class="media">
-                                            <div class="media-content">
-                                                <div class="content">
-                                                    <p>
-
-                                                        <strong>{{ $bar->name }}</strong><br>
-                                                        <small>{{ $bar->id }}</small><br>
-                                                        <small>{{ $bar->waldo }}</small><br>
-                                                        <small>{{ $bar->grault }}</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-    </section>
-@endsection
+    </div>
+</section>
