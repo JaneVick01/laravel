@@ -1,14 +1,8 @@
 <?php
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\WelcomeController;
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BarController;
-use App\Http\Controllers\PostController;
-use App\Models\Post;
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,34 +15,23 @@ use App\Models\Post;
 |
 */
 
-// this controls all routes like below see 1
+Route::middleware('auth')->group(function () {
+    // Routes that require authentication
+    Route::get('/', function () {
+        return view('welcome');
+    });
+//    Route::get('/dashboard', function () {
+//        return view('dashboard');
+//    });
+    Route::resource('/bars', BarController::class);
+//->middleware(['auth'])->name('dashboard');
+    // Add more routes here
+});
 
-Route::resources([
-    'faq' => FaqController::class,
-]);
+// Logout route
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
 
-// 1
-//Route::get('/faq', [FaqController::class, 'index']);
-//Route::get('/faq/create', [FaqController::class, 'create']);
-//Route::post('/faq', [FaqController::class, 'store']);
-//Route::get('/faq/{id}', [FaqController::class, 'show']);
-//Route::get('/faq/{id}/edit', [FaqController::class, 'edit']);
-//Route::get('/faq/{id}', [FaqController::class, 'update']);
-//Route::get('/faq/{id}', [FaqController::class, 'destroy']);
 
-Route::get('/blog', [BlogController::class, 'index']);
-
-Route::get('/', [WelcomeController::class, 'show']);
-
-Route::get('/', function () {
-    // Take the 3 newest posts
-    $latestPosts = Post::orderBy('published_at', 'desc')->take(3)->get();
-
-    return view('welcome', compact('latestPosts'));
-})->name('home');
-
-// Resource routes of the base pages.
-Route::resource('/posts', PostController::class);
-
-Route::resource('/bars', BarController::class);
-
+require __DIR__.'/auth.php';
