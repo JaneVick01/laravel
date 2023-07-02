@@ -4,6 +4,11 @@
     <header>
         <img src="/images/pxl.jpg" width="1520" height="500" class="landfoto" alt="Mountain landscape">
     </header>
+    <a href="/bars">
+    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
+        CHECK CRUD HERE
+    </button>
+    </a>
     <div class="indexprofile">
         <a href="/myprofile">
             <img src="/images/src.jpg" width="200" height="250" class="profile" alt="My face">
