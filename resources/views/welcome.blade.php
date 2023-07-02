@@ -1,9 +1,16 @@
 @extends ('layout')
 
 @section ('content')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../css/app.css">
+</head>
+
     <header>
         <img src="/images/pxl.jpg" width="1520" height="500" class="landfoto" alt="Mountain landscape">
     </header>
+
     <a href="/bars">
     <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
         CHECK CRUD HERE
