@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     // Routes that require authentication
+    Route::resource('/bars', BarController::class);
     Route::get('/', function () {
         return view('welcome');
     });
 //    Route::get('/dashboard', function () {
 //        return view('dashboard');
 //    });
-    Route::resource('/bars', BarController::class);
 //->middleware(['auth'])->name('dashboard');
     // Add more routes here
 });
