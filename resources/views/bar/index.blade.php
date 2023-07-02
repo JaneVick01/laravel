@@ -10,16 +10,6 @@
             <p class="text-2xl font-bold">News</p>
             <p class="text-xl">The latest news on the HZ</p>
         </div>
-            <div class="flex justify-end">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
-                        Log out
-                    </button>
-                </form>
-            </div>
-
-
     </div>
 </section>
 
