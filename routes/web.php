@@ -15,23 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
     // Routes that require authentication
-    Route::get('/', function () {
-        return view('welcome');
-    });
+
 //    Route::get('/dashboard', function () {
 //        return view('dashboard');
 //    });
-    Route::resource('/bars', BarController::class);
-//->middleware(['auth'])->name('dashboard');
-    // Add more routes here
-});
+   
 
 // Logout route
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
+// Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+//     ->middleware('auth')
+//     ->name('logout');
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-require __DIR__.'/auth.php';
+    Route::resource('/bars', BarController::class);
+    //->middleware(['auth'])->name('dashboard');
+        // Add more routes here
+// require __DIR__.'/auth.php';
