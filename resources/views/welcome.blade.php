@@ -15,6 +15,11 @@
     <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
         CHECK CRUD HERE
     </button>
+        </a>
+        <a href="/api">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+                CHECK API HERE
+            </button>
     </a>
     <div class="indexprofile">
         <a href="/myprofile">

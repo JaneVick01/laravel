@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BarController;
 use Illuminate\Support\Facades\Route;
@@ -16,11 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function () {
+    Route::resource('/api', ApiController::class);
     // Routes that require authentication
     Route::resource('/bars', BarController::class);
     Route::get('/', function () {
         return view('welcome');
     });
+
 //    Route::get('/dashboard', function () {
 //        return view('dashboard');
 //    });
